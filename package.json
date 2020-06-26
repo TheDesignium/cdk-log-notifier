@@ -1,0 +1,21 @@
+{
+  "name": "cdk-log-notifier",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "dependencies": {
+    "change-case": "^4.1.1",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.5",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {
+    "@aws-cdk/core": "^1.46.0",
+    "@aws-cdk/aws-lambda": "^1.46.0",
+    "@aws-cdk/aws-logs": "^1.46.0",
+    "@aws-cdk/aws-logs-destinations": "^1.46.0"
+  }
+}
