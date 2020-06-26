@@ -61,6 +61,20 @@ attributes: LogNotifierAttributes
 
 To use with `LogNotifier.fromAttributes()`.
 
+## Containing Resources
+
+- [logs.SubscriptionFilter](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.SubscriptionFilter.html)
+- [lambda.Function](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.Function.html)
+
+## Motivation
+
+There were 2 requirements:
+
+1. Notice the all logs produced by `console.error()`(not only the crash report such InvocationError)
+2. Jump easily to CloudWatch via link
+
+We tried `Lambda's error metric + CloudWatch Alarm + CloudWatch Chatbot` and `CloudWatch Metrics Filter + CloudWatch Alarm + CloudWatch Chatbot`, but the former system don't satisfy [1] and the latter system don't satisfy [2]. That's why we need this.
+
 ## FAQ
 
 ### Cross Stack?
@@ -70,3 +84,7 @@ Possible. Export all values in `LogNotifier.prototype.attributes`, import it and
 ### How can I customize the Slack bot icon or name?
 
 You can set at [Slack App setting page](https://api.slack.com/apps), or Incoming Webhook configuration page if you use [Legacy Incoming Webhook](https://api.slack.com/legacy/custom-integrations/incoming-webhooks).
+
+### No support for other languages than TypeScript?
+
+I'm not familiar with [jsii](https://github.com/aws/jsii) so I leave it for now. Contribution is welcome.
