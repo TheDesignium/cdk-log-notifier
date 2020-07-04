@@ -1,4 +1,4 @@
-# cdk-log-notifier: Notify the logs which match a pattern via Slack.
+# cdk-log-notifier: Filter CloudWatch logs and post to Slack.
 
 The AWS CDK Construct to build a system that gather CloudWatch logs, filter and post to Slack.
 
