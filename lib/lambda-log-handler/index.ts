@@ -85,7 +85,7 @@ export const handler = async (event: CloudWatchLogsEvent) => {
               },
               {
                 "type": "mrkdwn",
-                "text": `<https://ap-northeast-1.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-1#logsV2:log-groups/log-group/${encodeURIComponent(logData.logGroup)}/log-events/${encodeURIComponent(logData.logStream)}|See in CloudWatch>`,
+                "text": `<https://ap-northeast-1.console.aws.amazon.com/cloudwatch/home?region=${process.env.AWS_REGION}#logsV2:log-groups/log-group/${encodeURIComponent(logData.logGroup)}/log-events/${encodeURIComponent(logData.logStream)}|See in CloudWatch>`,
               },
             ],
           },
