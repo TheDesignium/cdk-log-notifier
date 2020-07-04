@@ -66,6 +66,10 @@ To use with `LogNotifier.fromAttributes()`.
 - [logs.SubscriptionFilter](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.SubscriptionFilter.html)
 - [lambda.Function](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.Function.html)
 
+## Limitation
+
+The `watch()` method attaches a [Subscription](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html) to the subject logGroup. The number of subscription can be attached to a logGroup, however, is only one. So it'll fail if the logGroup has another subscription already. Similary, the watched logGroup can't be attached another subscription or watched from another LogNotifier.
+
 ## Motivation
 
 There were 2 requirements:
