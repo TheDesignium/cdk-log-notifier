@@ -50,7 +50,7 @@ class LogNotifierFacade extends LogNotifierImpl {
     super(scope, id, { physicalName: id });
 
     this.filterPattern = props.filterPattern;
-    this.handleLogFunc = new lambda.Function(this, 'destinationFunc', {
+    this.handleLogFunc = new lambda.Function(this, 'LogHandler', {
       code: lambda.Code.fromAsset(path.join(__dirname, 'lambda-log-handler')),
       runtime: lambda.Runtime.NODEJS_12_X,
       handler: 'index.handler',
