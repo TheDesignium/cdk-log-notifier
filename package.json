@@ -1,8 +1,12 @@
 {
-  "name": "cdk-log-notifier",
+  "name": "@thedesignium/cdk-log-notifier",
   "version": "0.1.0",
   "main": "lib/index.js",
+  "license": "MIT",
   "types": "lib/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "change-case": "^4.1.1",
     "source-map-support": "^0.5.19"
