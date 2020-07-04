@@ -16,7 +16,6 @@ export interface LogNotifier extends LogNotifierAttributes {
 abstract class LogNotifierImpl extends cdk.Resource implements LogNotifier {
   abstract readonly filterPattern: logs.IFilterPattern;
   protected abstract readonly handleLogFunc: lambda.IFunction;
-  protected abstract readonly isHandleErrorLogFuncImported: boolean;
   get destinationFunctionArn(): string {
     return this.handleLogFunc.functionArn;
   }
@@ -32,14 +31,6 @@ abstract class LogNotifierImpl extends cdk.Resource implements LogNotifier {
       filterPattern: this.filterPattern,
       logGroup,
     });
-    // See aws/aws-cdk #7588, #8726.
-    if (this.isHandleErrorLogFuncImported) {
-      new lambda.CfnPermission(this, `CanInvoke${logGroup.node.uniqueId}`, {
-        action: 'lambda:InvokeFunction',
-        functionName: this.handleLogFunc.functionArn,
-        principal: 'logs.amazonaws.com',
-      });
-    }
   }
 }
 
@@ -51,7 +42,6 @@ export interface LogNotifierProps {
 class LogNotifierFacade extends LogNotifierImpl {
   filterPattern: logs.IFilterPattern;
   protected handleLogFunc: lambda.IFunction;
-  protected isHandleErrorLogFuncImported = false;
   constructor(
     scope: cdk.Construct,
     id: string,
@@ -68,12 +58,18 @@ class LogNotifierFacade extends LogNotifierImpl {
         'SLACK_INCOMING_WEBHOOK_URL': props.slackIncomingWebhookUrl,
       },
     });
+
+    // See aws/aws-cdk #7588, #8726.
+    new lambda.CfnPermission(this, 'AnyLogsCanInvoke', {
+      action: 'lambda:InvokeFunction',
+      functionName: this.handleLogFunc.functionArn,
+      principal: 'logs.amazonaws.com',
+    });
   }
   static fromAttributes(scope: cdk.Construct, id: string, attrs: LogNotifierAttributes): LogNotifier {
     class LogNotifierFromAttributes extends LogNotifierImpl {
       filterPattern = attrs.filterPattern;
       protected handleLogFunc = lambda.Function.fromFunctionArn(scope, `${id}DestinationFunc`, attrs.destinationFunctionArn);
-      protected isHandleErrorLogFuncImported = true;
     }
     return new LogNotifierFromAttributes(scope, id, { physicalName: id });
   }
