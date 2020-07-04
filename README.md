@@ -2,7 +2,7 @@
 
 The AWS CDK Construct to build a system that gather CloudWatch logs, filter and post to Slack.
 
-![img](./screenshot.png)
+![screenshot](https://i.imgur.com/Qx2A9n2.png)
 
 ## Example Usage
 
