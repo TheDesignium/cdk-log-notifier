@@ -36,6 +36,7 @@ The properties in `props`:
 
 - `filterPattern`: The [FilterPattern object in aws-cloudwatch module](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.FilterPattern.html). The logs is filtered as specified here. *Required.*
 - `slackIncomingWebhookUrl`: The [Incoming Webhook URL](https://api.slack.com/messaging/webhooks) of Slack. Create for the Slack channel the logs should be posted. *Required.*
+- `dateTimeFormat`: The [DateTimeFormat](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) object to format the datetime which shown at the bottom of the Slack message. If omitted, it's formatted like `12/20, 3:00:00 AM UTC`. *Optional.*
 
 #### Static Method: `fromAttributes`
 

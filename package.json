@@ -1,6 +1,6 @@
 {
   "name": "@thedesignium/cdk-log-notifier",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "main": "lib/index.js",
   "license": "MIT",
   "types": "lib/index.d.ts",

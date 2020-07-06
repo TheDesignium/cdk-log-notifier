@@ -35,6 +35,7 @@ abstract class LogNotifierImpl extends cdk.Resource implements LogNotifier {
 }
 
 export interface LogNotifierProps {
+  dateTimeFormat?: Intl.DateTimeFormat;
   filterPattern: logs.IFilterPattern;
   slackIncomingWebhookUrl: string;
 }
@@ -49,12 +50,23 @@ class LogNotifierFacade extends LogNotifierImpl {
   ) {
     super(scope, id, { physicalName: id });
 
+    const dateTimeFormat = props.dateTimeFormat ?? new Intl.DateTimeFormat('en-US', {
+      timeZone: 'UTC',
+      timeZoneName: 'short',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+    });
+
     this.filterPattern = props.filterPattern;
     this.handleLogFunc = new lambda.Function(this, 'LogHandler', {
       code: lambda.Code.fromAsset(path.join(__dirname, 'lambda-log-handler')),
       runtime: lambda.Runtime.NODEJS_12_X,
       handler: 'index.handler',
       environment: {
+        'RESOLVED_DATETIME_FORMAT_OPTIONS': JSON.stringify(dateTimeFormat.resolvedOptions()),
         'SLACK_INCOMING_WEBHOOK_URL': props.slackIncomingWebhookUrl,
       },
     });

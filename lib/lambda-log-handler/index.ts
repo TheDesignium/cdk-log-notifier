@@ -5,6 +5,30 @@ import type * as http from 'http';
 if (process.env.SLACK_INCOMING_WEBHOOK_URL === undefined) throw 'SLACK_INCOMING_WEBHOOK_URL is not set.';
 const slackIncomingWebhookUrl = process.env.SLACK_INCOMING_WEBHOOK_URL;
 
+if (process.env.RESOLVED_DATETIME_FORMAT_OPTIONS === undefined) throw 'RESOLVED_DATETIME_FORMAT_OPTIONS is not set.';
+const resolvedDateTimeFormatOptionsStr = process.env.RESOLVED_DATETIME_FORMAT_OPTIONS;
+
+function isResolvedDateTimeFormatOptions(v: any): v is Intl.ResolvedDateTimeFormatOptions {
+  if (typeof v.locale !== 'string') return false;
+  if (typeof v.calendar !== 'string') return false;
+  if (typeof v.numberingSystem !== 'string') return false;
+  if (typeof v.timeZone !== 'string') return false;
+  if (v.hour12 !== undefined && typeof v.hour12 !== 'boolean') return false;
+  if (v.weekday !== undefined && typeof v.weekday !== 'string') return false;
+  if (v.era !== undefined && typeof v.era !== 'string') return false;
+  if (v.year !== undefined && typeof v.year !== 'string') return false;
+  if (v.month !== undefined && typeof v.month !== 'string') return false;
+  if (v.day !== undefined && typeof v.day !== 'string') return false;
+  if (v.hour !== undefined && typeof v.hour !== 'string') return false;
+  if (v.minute !== undefined && typeof v.minute !== 'string') return false;
+  if (v.second !== undefined && typeof v.second !== 'string') return false;
+  if (v.timeZoneName !== undefined && typeof v.timeZoneName !== 'string') return false;
+  return true;
+}
+
+const resolvedDateTimeFormatOptions = JSON.parse(resolvedDateTimeFormatOptionsStr);
+if (!isResolvedDateTimeFormatOptions(resolvedDateTimeFormatOptions)) throw 'RESOLVED_DATETIME_FORMAT_OPTIONS is invalid.';
+
 interface CloudWatchLogsEvent {
   awslogs: {
     data: string;
@@ -74,14 +98,7 @@ export const handler = async (event: CloudWatchLogsEvent) => {
             "elements": [
               {
                 "type": "plain_text",
-                "text": new Date(logEvent.timestamp).toLocaleString('ja-JP', {
-                  timeZone: 'Asia/Tokyo',
-                  month: 'numeric',
-                  day: 'numeric',
-                  hour: 'numeric',
-                  minute: 'numeric',
-                  second: 'numeric',
-                }),
+                "text": new Date(logEvent.timestamp).toLocaleString(resolvedDateTimeFormatOptions.locale, resolvedDateTimeFormatOptions),
               },
               {
                 "type": "mrkdwn",
