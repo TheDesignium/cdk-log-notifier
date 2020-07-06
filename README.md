@@ -77,7 +77,7 @@ There were 2 requirements:
 1. Notice the all logs produced by `console.error()`(not only the crash report such InvocationError)
 2. Jump easily to CloudWatch via link
 
-We tried `Lambda's error metric + CloudWatch Alarm + CloudWatch Chatbot` and `CloudWatch Metrics Filter + CloudWatch Alarm + CloudWatch Chatbot`, but the former system don't satisfy [1] and the latter system don't satisfy [2]. That's why we need this.
+We tried `Lambda's error metric + CloudWatch Alarm + Chatbot` and `CloudWatch Metrics Filter + CloudWatch Alarm + Chatbot`, but the former system don't satisfy [1] and the latter system don't satisfy [2]. That's why we need this.
 
 ## FAQ
 
