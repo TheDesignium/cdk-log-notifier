@@ -79,6 +79,13 @@ export const handler = async (event: CloudWatchLogsEvent) => {
       msg = msg.replace(jsonRegex, JSON.stringify(json, null, 2));
     } catch (e) { }
 
+    let mainPostText = `${logData.logGroup}\n\`\`\`${msg}\n\`\`\``;
+    if (mainPostText.length > 3000) {
+      const ellipsisMsg = '\n... Too long. See the rest at CloudWatch.';
+      msg = msg.substring(0, 3000 + msg.length - mainPostText.length - ellipsisMsg.length);
+      mainPostText = `${logData.logGroup}\n\`\`\`${msg}\n${ellipsisMsg}\`\`\``;
+    }
+
     const resp = await fetch(slackIncomingWebhookUrl, {
       method: 'POST',
       headers: {
@@ -90,7 +97,7 @@ export const handler = async (event: CloudWatchLogsEvent) => {
             "type": "section",
             "text": {
               "type": "mrkdwn",
-              "text": `${logData.logGroup}\n\`\`\`${msg}\n\`\`\``,
+              "text": mainPostText,
             },
           },
           {
