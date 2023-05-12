@@ -1,6 +1,6 @@
 {
   "name": "@thedesignium/cdk-log-notifier",
-  "version": "0.1.9",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "license": "MIT",
   "types": "lib/index.d.ts",
@@ -17,9 +17,7 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "@aws-cdk/core": "^1.46.0",
-    "@aws-cdk/aws-lambda": "^1.46.0",
-    "@aws-cdk/aws-logs": "^1.46.0",
-    "@aws-cdk/aws-logs-destinations": "^1.46.0"
+    "aws-cdk-lib": "^2.0.0",
+    "constructs": "^10.0.5"
   }
 }

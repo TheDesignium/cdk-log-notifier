@@ -1,7 +1,8 @@
-import * as cdk from '@aws-cdk/core';
-import * as lambda from '@aws-cdk/aws-lambda';
-import * as logs from '@aws-cdk/aws-logs';
-import * as logsDestinations from '@aws-cdk/aws-logs-destinations';
+import * as cdk from 'aws-cdk-lib';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as logs from 'aws-cdk-lib/aws-logs';
+import * as logsDestinations from 'aws-cdk-lib/aws-logs-destinations';
+import * as constructs from 'constructs';
 import * as path from 'path';
 
 export interface LogNotifierAttributes {
@@ -26,7 +27,7 @@ abstract class LogNotifierImpl extends cdk.Resource implements LogNotifier {
     };
   }
   watch(logGroup: logs.LogGroup) {
-    new logs.SubscriptionFilter(this, `${logGroup.node.uniqueId}SubscriptionFilter`, {
+    new logs.SubscriptionFilter(this, `${logGroup.node.id}SubscriptionFilter`, {
       destination: new logsDestinations.LambdaDestination(this.handleLogFunc),
       filterPattern: this.filterPattern,
       logGroup,
@@ -44,7 +45,7 @@ class LogNotifierFacade extends LogNotifierImpl {
   filterPattern: logs.IFilterPattern;
   protected handleLogFunc: lambda.IFunction;
   constructor(
-    scope: cdk.Construct,
+    scope: constructs.Construct,
     id: string,
     props: LogNotifierProps,
   ) {
@@ -70,15 +71,8 @@ class LogNotifierFacade extends LogNotifierImpl {
         'SLACK_INCOMING_WEBHOOK_URL': props.slackIncomingWebhookUrl,
       },
     });
-
-    // See aws/aws-cdk #7588, #8726.
-    new lambda.CfnPermission(this, 'AnyLogsCanInvoke', {
-      action: 'lambda:InvokeFunction',
-      functionName: this.handleLogFunc.functionArn,
-      principal: 'logs.amazonaws.com',
-    });
   }
-  static fromAttributes(scope: cdk.Construct, id: string, attrs: LogNotifierAttributes): LogNotifier {
+  static fromAttributes(scope: constructs.Construct, id: string, attrs: LogNotifierAttributes): LogNotifier {
     class LogNotifierFromAttributes extends LogNotifierImpl {
       filterPattern = attrs.filterPattern;
       protected handleLogFunc = lambda.Function.fromFunctionArn(scope, `${id}DestinationFunc`, attrs.destinationFunctionArn);
