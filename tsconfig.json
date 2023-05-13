@@ -1,23 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "declaration": true,
-    "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "incremental": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "lib": ["esnext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": ["es2020"],
+    "module": "es2020",
+    "moduleResolution": "node16",
     "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
     "strict": true,
-    "target": "es2019"
-  },
-  "include": ["."],
-  "exclude": [
-    "cdk.out",
-    "**/*.d.ts",
-  ]
+    "target": "esnext"
+  }
 }

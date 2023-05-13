@@ -105,7 +105,7 @@ export const handler = async (event: CloudWatchLogsEvent) => {
             "elements": [
               {
                 "type": "plain_text",
-                "text": new Date(logEvent.timestamp).toLocaleString(resolvedDateTimeFormatOptions.locale, resolvedDateTimeFormatOptions),
+                "text": new Date(logEvent.timestamp).toLocaleString(resolvedDateTimeFormatOptions.locale, resolvedDateTimeFormatOptions as Intl.DateTimeFormatOptions),
               },
               {
                 "type": "mrkdwn",
