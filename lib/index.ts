@@ -64,7 +64,7 @@ class LogNotifierFacade extends LogNotifierImpl {
     this.filterPattern = props.filterPattern;
     this.handleLogFunc = new lambda.Function(this, 'LogHandler', {
       code: lambda.Code.fromAsset(path.join(__dirname, 'lambda-log-handler')),
-      runtime: lambda.Runtime.NODEJS_12_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'index.handler',
       environment: {
         'RESOLVED_DATETIME_FORMAT_OPTIONS': JSON.stringify(dateTimeFormat.resolvedOptions()),
