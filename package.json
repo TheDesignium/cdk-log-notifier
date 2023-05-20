@@ -3,21 +3,68 @@
   "version": "2.0.2",
   "main": "lib/index.js",
   "license": "MIT",
+  "keywords": ["awscdk"],
   "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "jsii",
+    "watch": "jsii -w",
+    "package": "jsii-pacmak"
+  },
+  "author": {
+    "name": "Yuki Ito"
+  },
+  "repository": {
+    "url": "https://github.com/TheDesignium/cdk-log-notifier.git",
+    "type": "git"
+  },
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "dotnet": {
+        "namespace": "TheDesignium.CDKLogNotifier",
+        "packageId": "TheDesignium.CDKLogNotifier"
+      },
+      "java": {
+        "package": "com.thedesignium.cdk_log_notifier",
+        "maven": {
+          "groupId": "com.thedesignium",
+          "artifactId": "cdk-log-notifier"
+        }
+      },
+      "python": {
+        "distName": "cdk-log-notifier",
+        "module": "cdk_log_notifier"
+      },
+      "go": {
+        "moduleName": "github.com/TheDesignium/cdk-log-notifier",
+        "packageName": "lognotifier"
+      }
+    }
+  },
+  "bundledDependencies": [
+    "change-case"
+  ],
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "change-case": "^4.1.2",
-    "source-map-support": "^0.5.21"
+    "change-case": "^4.1.2"
   },
   "devDependencies": {
     "@types/node": "10.17.5",
+    "aws-cdk-lib": "2.51.0",
+    "constructs": "10.0.5",
+    "jsii": "^5.0.7",
+    "jsii-pacmak": "^1.81.0",
+    "jsii-rosetta": "^5.0.7",
     "reflect-metadata": "^0.1.13",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.0.0",
+    "aws-cdk-lib": "^2.51.0",
     "constructs": "^10.0.5"
-  }
+  },
+  "bundleDependencies": [
+    "change-case"
+  ]
 }

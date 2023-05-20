@@ -2,3 +2,4 @@
 *.js
 *.tsbuildinfo
 node_modules
+dist

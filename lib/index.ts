@@ -6,15 +6,17 @@ import * as constructs from 'constructs';
 import * as path from 'path';
 
 export interface LogNotifierAttributes {
-  destinationFunctionArn: string;
-  filterPattern: logs.IFilterPattern;
+  readonly destinationFunctionArn: string;
+  readonly filterPattern: logs.IFilterPattern;
 }
 
-export interface LogNotifier extends LogNotifierAttributes {
+export interface ILogNotifier {
+  readonly destinationFunctionArn: string;
+  readonly filterPattern: logs.IFilterPattern;
   watch(logGroup: logs.ILogGroup): void;
 };
 
-abstract class LogNotifierImpl extends cdk.Resource implements LogNotifier {
+abstract class LogNotifierImpl extends cdk.Resource implements ILogNotifier {
   abstract readonly filterPattern: logs.IFilterPattern;
   protected abstract readonly handleLogFunc: lambda.IFunction;
   get destinationFunctionArn(): string {
@@ -26,7 +28,7 @@ abstract class LogNotifierImpl extends cdk.Resource implements LogNotifier {
       filterPattern: this.filterPattern,
     };
   }
-  watch(logGroup: logs.LogGroup) {
+  watch(logGroup: logs.ILogGroup) {
     new logs.SubscriptionFilter(this, `${logGroup.node.id}SubscriptionFilter`, {
       destination: new logsDestinations.LambdaDestination(this.handleLogFunc),
       filterPattern: this.filterPattern,
@@ -35,14 +37,31 @@ abstract class LogNotifierImpl extends cdk.Resource implements LogNotifier {
   }
 }
 
+export interface DateTimeFormatOptions {
+  readonly localeMatcher?: "best fit" | "lookup" | undefined;
+  readonly weekday?: "long" | "short" | "narrow" | undefined;
+  readonly era?: "long" | "short" | "narrow" | undefined;
+  readonly year?: "numeric" | "2-digit" | undefined;
+  readonly month?: "numeric" | "2-digit" | "long" | "short" | "narrow" | undefined;
+  readonly day?: "numeric" | "2-digit" | undefined;
+  readonly hour?: "numeric" | "2-digit" | undefined;
+  readonly minute?: "numeric" | "2-digit" | undefined;
+  readonly second?: "numeric" | "2-digit" | undefined;
+  readonly timeZoneName?: "short" | "long" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric" | undefined;
+  readonly formatMatcher?: "best fit" | "basic" | undefined;
+  readonly hour12?: boolean | undefined;
+  readonly timeZone?: string | undefined;
+  readonly locales?: string | string[];
+};
+
 export interface LogNotifierProps {
-  dateTimeFormat?: Intl.DateTimeFormat;
-  filterPattern: logs.IFilterPattern;
-  slackIncomingWebhookUrl: string;
+  readonly dateTimeFormatOptions?: DateTimeFormatOptions;
+  readonly filterPattern: logs.IFilterPattern;
+  readonly slackIncomingWebhookUrl: string;
 }
 
-class LogNotifierFacade extends LogNotifierImpl {
-  filterPattern: logs.IFilterPattern;
+export class LogNotifier extends LogNotifierImpl {
+  readonly filterPattern: logs.IFilterPattern;
   protected handleLogFunc: lambda.IFunction;
   constructor(
     scope: constructs.Construct,
@@ -51,7 +70,8 @@ class LogNotifierFacade extends LogNotifierImpl {
   ) {
     super(scope, id, { physicalName: id });
 
-    const dateTimeFormat = props.dateTimeFormat ?? new Intl.DateTimeFormat('en-US', {
+    const dateTimeFormatOptions = props.dateTimeFormatOptions ?? {
+      locales: 'en-US',
       timeZone: 'UTC',
       timeZoneName: 'short',
       month: 'numeric',
@@ -59,7 +79,8 @@ class LogNotifierFacade extends LogNotifierImpl {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
-    });
+    };
+    const dateTimeFormat = new Intl.DateTimeFormat(dateTimeFormatOptions.locales, dateTimeFormatOptions);
 
     this.filterPattern = props.filterPattern;
     this.handleLogFunc = new lambda.Function(this, 'LogHandler', {
@@ -72,7 +93,7 @@ class LogNotifierFacade extends LogNotifierImpl {
       },
     });
   }
-  static fromAttributes(scope: constructs.Construct, id: string, attrs: LogNotifierAttributes): LogNotifier {
+  static fromAttributes(scope: constructs.Construct, id: string, attrs: LogNotifierAttributes): ILogNotifier {
     class LogNotifierFromAttributes extends LogNotifierImpl {
       filterPattern = attrs.filterPattern;
       protected handleLogFunc = lambda.Function.fromFunctionArn(scope, `${id}DestinationFunc`, attrs.destinationFunctionArn);
@@ -80,5 +101,3 @@ class LogNotifierFacade extends LogNotifierImpl {
     return new LogNotifierFromAttributes(scope, id, { physicalName: id });
   }
 }
-
-export const LogNotifier = LogNotifierFacade;
