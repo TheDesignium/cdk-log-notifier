@@ -444,6 +444,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_backupgateway": {
+          "targets": {
+            "dotnet": {
+              "package": "Amazon.CDK.AWS.BackupGateway"
+            },
+            "java": {
+              "package": "services.backupgateway"
+            },
+            "python": {
+              "module": "aws_cdk.aws_backupgateway"
+            }
+          }
+        },
         "aws-cdk-lib.aws_batch": {
           "targets": {
             "dotnet": {
@@ -783,6 +796,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_comprehend": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.Comprehend"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.comprehend"
+            },
+            "python": {
+              "module": "aws_cdk.aws_comprehend"
+            }
+          }
+        },
         "aws-cdk-lib.aws_config": {
           "targets": {
             "dotnet": {
@@ -926,6 +952,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_devicefarm": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.DeviceFarm"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.devicefarm"
+            },
+            "python": {
+              "module": "aws_cdk.aws_devicefarm"
+            }
+          }
+        },
         "aws-cdk-lib.aws_devopsguru": {
           "targets": {
             "dotnet": {
@@ -988,6 +1027,19 @@
             },
             "python": {
               "module": "aws_cdk.aws_docdb"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_docdbelastic": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.DocDBElastic"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.docdbelastic"
+            },
+            "python": {
+              "module": "aws_cdk.aws_docdbelastic"
             }
           }
         },
@@ -1407,6 +1459,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_grafana": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.Grafana"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.grafana"
+            },
+            "python": {
+              "module": "aws_cdk.aws_grafana"
+            }
+          }
+        },
         "aws-cdk-lib.aws_greengrass": {
           "targets": {
             "dotnet": {
@@ -1534,6 +1599,19 @@
             },
             "python": {
               "module": "aws_cdk.aws_inspectorv2"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_internetmonitor": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.InternetMonitor"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.internetmonitor"
+            },
+            "python": {
+              "module": "aws_cdk.aws_internetmonitor"
             }
           }
         },
@@ -1693,6 +1771,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_ivschat": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.IVSChat"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.ivschat"
+            },
+            "python": {
+              "module": "aws_cdk.aws_ivschat"
+            }
+          }
+        },
         "aws-cdk-lib.aws_kafkaconnect": {
           "targets": {
             "dotnet": {
@@ -1716,6 +1807,19 @@
             },
             "python": {
               "module": "aws_cdk.aws_kendra"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_kendraranking": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.KendraRanking"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.kendraranking"
+            },
+            "python": {
+              "module": "aws_cdk.aws_kendraranking"
             }
           }
         },
@@ -2187,6 +2291,45 @@
             }
           }
         },
+        "aws-cdk-lib.aws_oam": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.Oam"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.oam"
+            },
+            "python": {
+              "module": "aws_cdk.aws_oam"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_omics": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.Omics"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.omics"
+            },
+            "python": {
+              "module": "aws_cdk.aws_omics"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_opensearchserverless": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.OpenSearchServerless"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.opensearchserverless"
+            },
+            "python": {
+              "module": "aws_cdk.aws_opensearchserverless"
+            }
+          }
+        },
         "aws-cdk-lib.aws_opensearchservice": {
           "targets": {
             "dotnet": {
@@ -2239,6 +2382,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_osis": {
+          "targets": {
+            "dotnet": {
+              "package": "Amazon.CDK.AWS.OSIS"
+            },
+            "java": {
+              "package": "services.osis"
+            },
+            "python": {
+              "module": "aws_cdk.aws_osis"
+            }
+          }
+        },
         "aws-cdk-lib.aws_panorama": {
           "targets": {
             "dotnet": {
@@ -2288,6 +2444,32 @@
             },
             "python": {
               "module": "aws_cdk.aws_pinpointemail"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_pipes": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.Pipes"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.pipes"
+            },
+            "python": {
+              "module": "aws_cdk.aws_pipes"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_proton": {
+          "targets": {
+            "dotnet": {
+              "package": "Amazon.CDK.AWS.Proton"
+            },
+            "java": {
+              "package": "services.proton"
+            },
+            "python": {
+              "module": "aws_cdk.aws_proton"
             }
           }
         },
@@ -2785,6 +2967,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_simspaceweaver": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.SimSpaceWeaver"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.simspaceweaver"
+            },
+            "python": {
+              "module": "aws_cdk.aws_simspaceweaver"
+            }
+          }
+        },
         "aws-cdk-lib.aws_sns": {
           "targets": {
             "dotnet": {
@@ -2928,6 +3123,19 @@
             }
           }
         },
+        "aws-cdk-lib.aws_systemsmanagersap": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.SystemsManagerSAP"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.systemsmanagersap"
+            },
+            "python": {
+              "module": "aws_cdk.aws_systemsmanagersap"
+            }
+          }
+        },
         "aws-cdk-lib.aws_timestream": {
           "targets": {
             "dotnet": {
@@ -2964,6 +3172,19 @@
             },
             "python": {
               "module": "aws_cdk.aws_voiceid"
+            }
+          }
+        },
+        "aws-cdk-lib.aws_vpclattice": {
+          "targets": {
+            "dotnet": {
+              "namespace": "Amazon.CDK.AWS.VpcLattice"
+            },
+            "java": {
+              "package": "software.amazon.awscdk.services.vpclattice"
+            },
+            "python": {
+              "module": "aws_cdk.aws_vpclattice"
             }
           }
         },
@@ -3231,6 +3452,9 @@
   "description": "@thedesignium/cdk-log-notifier",
   "homepage": "https://github.com/TheDesignium/cdk-log-notifier.git",
   "jsiiVersion": "5.0.7 (build 5782cd5)",
+  "keywords": [
+    "awscdk"
+  ],
   "license": "MIT",
   "metadata": {
     "jsii": {
@@ -3241,7 +3465,7 @@
   },
   "name": "@thedesignium/cdk-log-notifier",
   "readme": {
-    "markdown": "# cdk-log-notifier: Filter CloudWatch logs and post to Slack.\n\nThe AWS CDK Construct to build a system that gather CloudWatch logs, filter and post to Slack.\n\n![screenshot](https://i.imgur.com/Qx2A9n2.png)\n\n## Example Usage\n\nWatch the all logs contains \"ERROR\" from Lambda functions.\n\n```typescript\nconst logNotifier = new LogNotifier(this, 'logNotifier', {\n  filterPattern: logs.FilterPattern.allTerms('ERROR'),\n  slackIncomingWebhookUrl: 'https://hooks.slack.com/...', // Use yours.\n});\n\nlogNotifier.watch(lambdaFunc1.logGroup);\nlogNotifier.watch(lambdaFunc2.logGroup);\n```\n\n## Installation\n\n```sh\nnpm i @thedesignium/cdk-log-notifier\n```\n\n## API Reference\n\n### Class: `LogNotifier`\n\n```typescript\nnew LogNotifier(scope: cdk.Construct, id: string, props: LogNotifierProps)\n```\n\nThe properties in `props`:\n\n- `filterPattern`: The [FilterPattern object in aws-cloudwatch module](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.FilterPattern.html). The logs is filtered as specified here. *Required.*\n- `slackIncomingWebhookUrl`: The [Incoming Webhook URL](https://api.slack.com/messaging/webhooks) of Slack. Create for the Slack channel the logs should be posted. *Required.*\n- `dateTimeFormat`: The [DateTimeFormat](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) object to format the datetime which shown at the bottom of the Slack message. If omitted, it's formatted like `12/20, 3:00:00 AM UTC`. *Optional.*\n\n#### Static Method: `fromAttributes`\n\n```typescript\nLogNotifier.fromAttributes(scope: cdk.Construct, id: string, attrs: LogNotifierAttributes): LogNotifier\n```\n\nInstantiate from the attributes. Put the value of `logNotifier.attributes` as `attrs` parameter.\n\n#### Method: `watch`\n\n```typescript\nlogNotifier.watch(logGroup: logs.LogGroup): void\n```\n\nAdd the log group to watch list to notify. The logs in the watched log groups are filtered by the filterPattern and posted to Slack.\n\n#### Property: `attributes`\n\n```typescript\nattributes: LogNotifierAttributes\n```\n\nTo use with `LogNotifier.fromAttributes()`.\n\n## Containing Resources\n\n- [logs.SubscriptionFilter](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.SubscriptionFilter.html)\n- [lambda.Function](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.Function.html)\n\n## Limitation\n\nThe `watch()` method attaches a [Subscription](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html) to the subject logGroup. The number of subscription can be attached to a logGroup, however, is only one. So it'll fail if the logGroup has another subscription already. Similary, the watched logGroup can't be attached another subscription nor watched from another LogNotifier.\n\n## Motivation\n\nThere were 2 requirements:\n\n1. Notice the all logs produced by `console.error()`(not only the crash report such InvocationError)\n2. Jump easily to CloudWatch via link\n\nWe tried `Lambda's error metric + CloudWatch Alarm + Chatbot` and `CloudWatch Metrics Filter + CloudWatch Alarm + Chatbot`, but the former system don't satisfy [1] and the latter system don't satisfy [2]. That's why we need this.\n\n## FAQ\n\n### Cross Stack?\n\nPossible. Export all values in `LogNotifier.prototype.attributes`, import it and use `LogNotifier.fromAttributes()` in another Stack.\n\n### How can I customize the Slack bot icon or name?\n\nYou can set at [Slack App setting page](https://api.slack.com/apps), or Incoming Webhook configuration page if you use [Legacy Incoming Webhook](https://api.slack.com/legacy/custom-integrations/incoming-webhooks).\n\n### No support for other languages than TypeScript?\n\nI'm not familiar with [jsii](https://github.com/aws/jsii) so I leave it for now. Contribution is welcome.\n"
+    "markdown": "# cdk-log-notifier: Filter CloudWatch logs and post to Slack.\n\nThe AWS CDK Construct to build a system that gather CloudWatch logs, filter and post to Slack.\n\n![screenshot](https://i.imgur.com/Qx2A9n2.png)\n\n## Example Usage\n\nWatch the all logs contains \"ERROR\" from Lambda functions.\n\n```typescript\nconst logNotifier = new LogNotifier(this, 'logNotifier', {\n  filterPattern: logs.FilterPattern.allTerms('ERROR'),\n  slackIncomingWebhookUrl: 'https://hooks.slack.com/...', // Use yours.\n});\n\nlogNotifier.watch(lambdaFunc1.logGroup);\nlogNotifier.watch(lambdaFunc2.logGroup);\n```\n\n## Installation\n\n```sh\nnpm i @thedesignium/cdk-log-notifier\n```\n\n## API Reference\n\n### Class: `LogNotifier`\n\n```typescript\nnew LogNotifier(scope: cdk.Construct, id: string, props: LogNotifierProps)\n```\n\nThe properties in `props`:\n\n- `filterPattern`: The [FilterPattern object in aws-cloudwatch module](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.FilterPattern.html). The logs is filtered as specified here. *Required.*\n- `slackIncomingWebhookUrl`: The [Incoming Webhook URL](https://api.slack.com/messaging/webhooks) of Slack. Create for the Slack channel the logs should be posted. *Required.*\n- `dateTimeFormatOptions`: The [arguments of the DateTimeFormat constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters), used to format the datetime which shown at the bottom of the Slack message. If omitted, it's formatted like `12/20, 3:00:00 AM UTC`. *Optional.*\n\n  Example:\n\n  ```typescript\n    dateTimeFormatOptions: {\n      locales: 'ja-JP',\n      timeZone: 'Asia/Tokyo',\n      month: 'numeric',\n      day: 'numeric',\n      hour: 'numeric',\n      minute: 'numeric',\n      second: 'numeric',\n    }\n  ```\n\n#### Static Method: `fromAttributes`\n\n```typescript\nLogNotifier.fromAttributes(scope: cdk.Construct, id: string, attrs: LogNotifierAttributes): LogNotifier\n```\n\nInstantiate from the attributes. Put the value of `logNotifier.attributes` as `attrs` parameter.\n\n#### Method: `watch`\n\n```typescript\nlogNotifier.watch(logGroup: logs.LogGroup): void\n```\n\nAdd the log group to watch list to notify. The logs in the watched log groups are filtered by the filterPattern and posted to Slack.\n\n#### Property: `attributes`\n\n```typescript\nattributes: LogNotifierAttributes\n```\n\nTo use with `LogNotifier.fromAttributes()`.\n\n## Containing Resources\n\n- [logs.SubscriptionFilter](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.SubscriptionFilter.html)\n- [lambda.Function](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.Function.html)\n\n## Limitation\n\nThe `watch()` method attaches a [Subscription](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html) to the subject logGroup. The number of subscription can be attached to a logGroup, however, is only one. So it'll fail if the logGroup has another subscription already. Similary, the watched logGroup can't be attached another subscription nor watched from another LogNotifier.\n\n## Motivation\n\nThere were 2 requirements:\n\n1. Notice the all logs produced by `console.error()`(not only the crash report such InvocationError)\n2. Jump easily to CloudWatch via link\n\nWe tried `Lambda's error metric + CloudWatch Alarm + Chatbot` and `CloudWatch Metrics Filter + CloudWatch Alarm + Chatbot`, but the former system don't satisfy [1] and the latter system don't satisfy [2]. That's why we need this.\n\n## FAQ\n\n### Cross Stack?\n\nPossible. Export all values in `LogNotifier.prototype.attributes`, import it and use `LogNotifier.fromAttributes()` in another Stack.\n\n### How can I customize the Slack bot icon or name?\n\nYou can set at [Slack App setting page](https://api.slack.com/apps), or Incoming Webhook configuration page if you use [Legacy Incoming Webhook](https://api.slack.com/legacy/custom-integrations/incoming-webhooks).\n\n### No support for other languages than TypeScript?\n\nSupports Python, Java, Go and .NET.\n"
   },
   "repository": {
     "type": "git",
@@ -3769,5 +3993,5 @@
     }
   },
   "version": "2.0.2",
-  "fingerprint": "DZO2XPOdT4B8w/O2RsSf8KFFOT1t9J8mMYLVKV1cyyU="
+  "fingerprint": "H37r4Mcp9THAlvZAGUOzV5/5xp+Hof/WW+vvF3EnnbQ="
 }
