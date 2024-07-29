@@ -8,7 +8,7 @@ import { Stack } from 'aws-cdk-lib/core';
 test('snapshot test', () => {
   const stack = new Stack();
   const lambda1 = new lambda.Function(stack, 'lambda', {
-    runtime: lambda.Runtime.NODEJS_18_X,
+    runtime: lambda.Runtime.NODEJS_20_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async function() { return "Hello, world!"; }'),
   });
