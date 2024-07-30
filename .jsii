@@ -3829,7 +3829,7 @@
       "packageId": "TheDesignium.CDKLogNotifier"
     },
     "go": {
-      "moduleName": "github.com/TheDesignium/cdk-log-notifier",
+      "moduleName": "github.com/TheDesignium/cdk-log-notifier-go",
       "packageName": "lognotifier"
     },
     "java": {
@@ -3837,7 +3837,7 @@
         "artifactId": "cdk-log-notifier",
         "groupId": "com.thedesignium"
       },
-      "package": "com.thedesignium.cdk_log_notifier"
+      "package": "com.thedesignium.cdklognotifier"
     },
     "js": {
       "npm": "@thedesignium/cdk-log-notifier"
@@ -4343,6 +4343,6 @@
       "symbolId": "lib/index:LogNotifierProps"
     }
   },
-  "version": "2.0.2",
-  "fingerprint": "A5XylV7keXc1ZMPtwmKdYZD91iJhYjmtg+y3wX3xhxU="
+  "version": "2.0.4",
+  "fingerprint": "7iWwee09DT5SAlmSFGbFcxa8pRvCyTlFBz940gd4kxs="
 }

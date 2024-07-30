@@ -85,7 +85,7 @@ export class LogNotifier extends LogNotifierImpl {
     this.filterPattern = props.filterPattern;
     this.handleLogFunc = new lambda.Function(this, 'LogHandler', {
       code: lambda.Code.fromAsset(path.join(__dirname, 'lambda-log-handler')),
-      runtime: lambda.Runtime.NODEJS_20_X,
+      runtime: lambda.Runtime.NODEJS_LATEST,
       handler: 'index.handler',
       environment: {
         'RESOLVED_DATETIME_FORMAT_OPTIONS': JSON.stringify(dateTimeFormat.resolvedOptions()),
@@ -96,8 +96,15 @@ export class LogNotifier extends LogNotifierImpl {
   static fromAttributes(scope: constructs.Construct, id: string, attrs: LogNotifierAttributes): ILogNotifier {
     class LogNotifierFromAttributes extends LogNotifierImpl {
       filterPattern = attrs.filterPattern;
-      protected handleLogFunc = lambda.Function.fromFunctionArn(scope, `${id}DestinationFunc`, attrs.destinationFunctionArn);
+      protected handleLogFunc;
+      constructor() {
+        super(scope, id, { physicalName: id });
+        this.handleLogFunc = lambda.Function.fromFunctionAttributes(this, 'DestinationFunc', {
+          functionArn: attrs.destinationFunctionArn,
+          sameEnvironment: true,
+        });
+      }
     }
-    return new LogNotifierFromAttributes(scope, id, { physicalName: id });
+    return new LogNotifierFromAttributes();
   }
 }
