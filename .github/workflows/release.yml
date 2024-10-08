@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 20.x
       - run: npm ci
+      - run: npx jsii -v
       - run: npx jsii-pacmak -v --target js
       - run: npx publib-npm
         env:
