@@ -64,7 +64,7 @@
     "publib": "^0.2.806",
     "reflect-metadata": "^0.2.2",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.4"
+    "vitest": "^2.1.9"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.150.0",
