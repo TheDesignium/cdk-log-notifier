@@ -96,6 +96,21 @@ We tried `Lambda's error metric + CloudWatch Alarm + Chatbot` and `CloudWatch Me
 
 ## FAQ
 
+### Running project tests
+
+To execute tests locally, run the following commands:
+
+```bash
+npm install
+npm run test
+```
+
+To update test snapshots, run:
+
+```bash
+npm run test -- -u
+```
+
 ### Cross Stack?
 
 Possible. Export all values in `LogNotifier.prototype.attributes`, import it and use `LogNotifier.fromAttributes()` in another Stack.
